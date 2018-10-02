@@ -1,5 +1,6 @@
 <?php 
 $mensaje="";
+// Sal creada aporreando el teclado
 $salt="dvnlserv8nv383v8yrtw8woad9rjfdsaow";
 $storedpass=hash('md5',"password".$salt);
 if(isset($_POST['name']) || isset($_POST['pass']))
@@ -8,6 +9,7 @@ if(isset($_POST['name']) || isset($_POST['pass']))
     $pass=$_POST['pass'];
     if($name == "" | $pass=="")
     {    
+	// Si por algun motivo se manda el campo usuario y/o el campo password vacios se imprimira este mensaje
         $mensaje="Se requiere nombre de usuario y clave para acceder";   
     }
     else
@@ -15,6 +17,7 @@ if(isset($_POST['name']) || isset($_POST['pass']))
         $pass=hash('md5',$pass.$salt);
         if($pass!=$storedpass)
         {
+		// Si la contraseña no coincide con la contraseña guardada se imprimira este mensaje
             $mensaje="Contrase&ntilde;a incorrecta";
         }
         else
