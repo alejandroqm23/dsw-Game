@@ -1,10 +1,13 @@
 <?php 
 if(isset($_REQUEST['name']))
 {
+    
     $names=array("Piedra","Papel","Tijeras");
+    // Valores del selector, 0 = Piedra, 1 = Papel y 2 = Tijeras
     $resultado="";
     function check($computer,$human)
     {
+        // Comprobaciones que retornan un String
         if(($computer == 1) && ($human== 0))
         {
             return "Has perdido";
@@ -42,6 +45,7 @@ if(isset($_REQUEST['name']))
             $jugada=$_POST['jugada'];
             if($jugada=="Test")
             {
+                // Comprobacion en Test
                 for($c=0;$c<3;$c++)
                 {
                     for($h=0;$h<3;$h++)
